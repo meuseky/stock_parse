@@ -9,5 +9,3 @@
 results.xml
 dist/
 .cache/
-**/.webassets-cache/
-**/VERSION.txt

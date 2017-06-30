@@ -2,6 +2,10 @@ from src.domain.index import Index, IndexStock
 from src.domain.stock import Stock
 from src.domain.trade import Trade, TradeList
 
+index_string = "GBCE All Share Index: {:f}"
+stock_string = "Symbol: {} | Dividend Yield: {:f} | PE Ratio: {:f}"
+trade_string = "Symbol: {} | Volume Weighted Price: {:f}"
+
 
 def index_analysis(index_data):
     index = Index()
@@ -9,8 +13,7 @@ def index_analysis(index_data):
         index_stock = IndexStock(data["symbol"], data["price"])
         index.add_index_stock(index_stock)
 
-    print("GBCE All Share Index: {:f}"
-          .format(index.gbce_all_share_index()))
+    print(index_string.format(index.gbce_all_share_index()))
 
 
 def stock_analysis(stock_data):
@@ -21,10 +24,7 @@ def stock_analysis(stock_data):
         stock_list.append(stock)
 
     for stock in stock_list:
-        print("Symbol: {} | Dividend Yield: {:f} | PE Ratio: {:f}"
-              .format(stock.symbol,
-                      stock.dividend_yield(),
-                      stock.pe_ratio()))
+        print(stock_string.format(stock.symbol, stock.dividend_yield(), stock.pe_ratio()))
 
 
 def trade_analysis(trade_data):
@@ -40,5 +40,4 @@ def trade_analysis(trade_data):
 
     # Later get only trades in interval
     for symbol, trades in trade_dict.items():
-        print("Symbol: {} | Volume Weighted Price: {:f}"
-              .format(symbol, trades.vol_weighted_stock_price()))
+        print(trade_string.format(symbol, trades.vol_weighted_stock_price()))

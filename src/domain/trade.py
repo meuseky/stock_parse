@@ -22,7 +22,7 @@ class Trade(object):
         """
         self.symbol = symbol
         self.price = price
-        self.volume = int(volume)
+        self.volume = volume
         self.trade_type = trade_type
         self.trade_date = datetime.strptime(trade_date, date_format)
 

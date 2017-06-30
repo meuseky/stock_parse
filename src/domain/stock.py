@@ -18,6 +18,7 @@ class Stock(object):
         self.trade_list = TradeList()
 
     def add_trade(self, trade: Trade):
+        # TODO type check trade? Yes because other methods depend on it being that type
         self.trade_list.add_trade(trade)
 
     @handle_zero_division

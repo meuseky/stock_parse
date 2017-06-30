@@ -12,7 +12,12 @@
 # Ipython 3
 # use jupyter notebook
 # https://stackoverflow.com/questions/28831854/how-do-i-add-python3-kernel-to-jupyter-ipython
+# https://jupyter.readthedocs.io/en/latest/install.html
 
 # Merge file_io methods into one
 
 # simplify the .gitignore file
+# Should I take out the sufficient args tests?
+# Should I initialise Shares by default_share method
+
+# Add try/catch blocks in analysis methods?

@@ -32,6 +32,7 @@ class Index(object):
         self.index_stocks = index_stocks or []
 
     def add_index_stock(self, index_stock: IndexStock):
+        # TODO type check indexstock? Yes because other methods depend on it being that type
         self.index_stocks.append(index_stock)
 
     def get_price_list(self) -> list:
@@ -43,6 +44,9 @@ class Index(object):
         :return:
         """
         price_list = self.get_price_list()
+        if not price_list:
+            return 0
+
         price_multiplicand = reduce(lambda x, y: x*y, price_list)
         root = 1.0 / len(price_list)
         return price_multiplicand**root
