@@ -1,0 +1,13 @@
+.idea/
+*.pyc
+*.eggs
+.idea
+**/__pycache__
+**/build/
+**/*.egg-info
+.coverage
+results.xml
+dist/
+.cache/
+**/.webassets-cache/
+**/VERSION.txt
