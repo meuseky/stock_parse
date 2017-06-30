@@ -1,0 +1,18 @@
+
+# Checking everything for zero division, and
+# Maybe use .get() if appropriate
+# maybe add logging and use timeit functions for geometric mean, etc
+# type check exact classes stocks = list[Stock]
+# Set stock type to be an enum
+
+# maybe check if all data in price list is valid
+# check for empty list
+# what if a price is negative
+
+# Ipython 3
+# use jupyter notebook
+# https://stackoverflow.com/questions/28831854/how-do-i-add-python3-kernel-to-jupyter-ipython
+
+# Merge file_io methods into one
+
+# simplify the .gitignore file

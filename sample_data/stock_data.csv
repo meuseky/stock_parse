@@ -1,0 +1,6 @@
+"symbol","type","last_dividend","fixed_dividend","par_value","price"
+"ALE","common",23,,60,72.05
+"GIN","preferred",8,0.02,100,0.45
+"JOE","common",13,,250,42
+"POP","common",8,,100,12
+"TEA","common",0,,100,15.23
