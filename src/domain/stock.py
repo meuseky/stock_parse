@@ -39,5 +39,3 @@ class Stock(object):
         :return:
         """
         return self.price / self.last_dividend
-
-

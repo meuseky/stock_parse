@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import argparse
 
 from src.analysis import index_analysis, trade_analysis, stock_analysis
@@ -40,7 +40,5 @@ if args.trade:
     trade_data = get_csv_data_by_file(args.trade)
     print("# Trade Analysis")
     trade_analysis(trade_data)
-
-exit()
 
 parser.print_help()
