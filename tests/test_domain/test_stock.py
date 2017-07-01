@@ -23,7 +23,8 @@ class TestStock(TestCase):
     def test_add_trade(self):
         self.assertEqual(0, len(self.stock.trade_list.trades))
 
-        self.stock.add_trade(Trade("ABC", 1.23, 1000, "buy", "01-01-2000 12:00:00"))
+        self.stock.add_trade(Trade("ABC", 1.23, 1000, "buy",
+                                   "01-01-2000 12:00:00"))
         self.assertEqual(1, len(self.stock.trade_list.trades))
 
     def test_dividend_yield(self):

@@ -1,6 +1,8 @@
-from datetime import datetime
+from datetime import datetime, timedelta
 
 from src.lib.decorator import handle_zero_division
+
+trade_date_format = "%d-%m-%Y %H:%M:%S"
 
 
 class Trade(object):
@@ -10,7 +12,7 @@ class Trade(object):
 
     def __init__(self, symbol: str, price: float, volume: int,
                  trade_type: str, trade_date: str,
-                 date_format: str="%d-%m-%Y %H:%M:%S"):
+                 date_format: str=trade_date_format):
         """
 
         :param symbol: Stock symbol
@@ -47,21 +49,18 @@ class TradeList(object):
         self.trades.append(trade)
 
     def get_trades_in_interval(self,
-                               interval_start: datetime,
-                               interval_end: datetime=datetime.now()) -> list:
+                               interval_start=
+                               datetime.now() - timedelta(minutes=15),
+                               interval_end=datetime.now()) -> list:
         """
 
         :param interval_start:
         :param interval_end:
         :return:
         """
-        valid_trades = []
         for trade in self.trades:
-
             if interval_start <= trade.trade_date <= interval_end:
-                valid_trades.append(trade)
-
-        return TradeList(valid_trades)
+                yield trade
 
     @handle_zero_division
     def vol_weighted_stock_price(self) -> float:
