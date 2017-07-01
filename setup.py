@@ -18,7 +18,7 @@ setup(
     packages=find_packages(),
     entry_points={
         "console_scripts": [
-            "stock_parse = src.stock_parse"
+            "stock_parse = src.stock_parse:main"
         ]
     },
     install_requires=read_deps(),
