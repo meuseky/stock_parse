@@ -20,7 +20,7 @@ class IndexStock(object):
 
 class Index(object):
     """
-    Obstensibly a list of stocks with method returning the GBCE Index
+    A list of IndexStocks with a method returning the GBCE Index
     """
 
     def __init__(self, index_stocks: list=None):

@@ -25,7 +25,6 @@ class TestApp(TestCase):
             "price": 100
         }]
         get_csv_file.return_value = index_data
-        get_index.return_value = Index()
 
         run_analysis(self.args)
         get_index.assert_called_with(index_data)

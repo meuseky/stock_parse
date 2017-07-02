@@ -1,9 +1,9 @@
+from datetime import datetime
 from unittest import TestCase
 
 from src.analysis import stock_analysis, trade_analysis, index_analysis
-from src.domain.index import Index
-from src.domain.stock import Stock
-from src.domain.trade import TradeList
+from src.domain.trade import trade_date_format
+from src.lib.messages import csv_error_message, data_error_message
 
 
 class TestAnalysis(TestCase):
@@ -13,14 +13,36 @@ class TestAnalysis(TestCase):
             "symbol": "ABC",
             "price": 100
         }]
-        index_result = index_analysis(index_data)
-        self.assertTrue(isinstance(index_result, Index))
+
+        expected_result = [
+            '# Index Analysis',
+            'GBCE All Share Index: 100.000000'
+        ]
+        actual_result = index_analysis(index_data)
+        self.assertEqual(expected_result, actual_result)
 
     def test_index_analysis_key_error(self):
-        index_data = [{
+        expected_result = [
+            csv_error_message
+        ]
+
+        # Missing key in input data
+        actual_result = index_analysis([{
             "symbol": "ABC"
-        }]
-        self.assertRaises(KeyError, index_analysis, index_data)
+        }])
+        self.assertEqual(expected_result, actual_result)
+
+    def test_index_analysis_type_error(self):
+        expected_result = [
+            data_error_message
+        ]
+
+        # Price is input as a string instead of a float
+        actual_result = index_analysis([{
+            "symbol": "ABC",
+            "price": "100"
+        }])
+        self.assertEqual(expected_result, actual_result)
 
     def test_stock_analysis(self):
         stock_data = [{
@@ -31,30 +53,80 @@ class TestAnalysis(TestCase):
             "par_value": 100,
             "price": 50.0,
         }]
-        stock_result = stock_analysis(stock_data)
-        self.assertEqual(1, len(stock_result))
-        self.assertTrue(isinstance(stock_result[0], Stock))
+
+        expected_result = [
+            '# Stock Analysis',
+            'Symbol: ABC | Dividend Yield: 0.300000 | PE Ratio: 3.333333'
+        ]
+        actual_result = stock_analysis(stock_data)
+        self.assertEqual(expected_result, actual_result)
         
     def test_stock_analysis_key_error(self):
-        stock_data = [{
+        expected_result = [
+            csv_error_message
+        ]
+
+        # Missing key in input data
+        actual_result = stock_analysis([{
             "symbol": "ABC"
-        }]
-        self.assertRaises(KeyError, stock_analysis, stock_data)
+        }])
+        self.assertEqual(expected_result, actual_result)
+
+    def test_stock_analysis_type_error(self):
+        expected_result = [
+            data_error_message
+        ]
+
+        # Price is input as a string instead of a float
+        actual_result = stock_analysis([{
+            "symbol": "ABC",
+            "type": "common",
+            "last_dividend": 15.0,
+            "fixed_dividend": "",
+            "par_value": 100,
+            "price": "50.0",
+        }])
+        self.assertEqual(expected_result, actual_result)
 
     def test_trade_analysis(self):
-        symbol = "ALE"
         trade_data = [{
-            "symbol": symbol,
+            "symbol": "ALE",
             "price": 70.44,
             "volume": 1000.0,
             "trade_type": "sell",
             "trade_date": "29-06-2017 22:34:00"
         }]
-        trade_result = trade_analysis(trade_data)
-        self.assertTrue(isinstance(trade_result[symbol], TradeList))
+
+        expected_result = [
+            '# Stock Analysis',
+            'Symbol: ALE | Volume Weighted Price: inf'
+        ]
+        actual_result = trade_analysis(trade_data)
+        self.assertEqual(expected_result, actual_result)
         
     def test_trade_analysis_key_error(self):
-        trade_data = [{
+        expected_result = [
+            csv_error_message
+        ]
+
+        # Missing key in input data
+        actual_result = trade_analysis([{
             "symbol": "ALE"
-        }]
-        self.assertRaises(KeyError, trade_analysis, trade_data)
+        }])
+
+        self.assertEqual(expected_result, actual_result)
+
+    def test_trade_analysis_type_error(self):
+        expected_result = [
+            data_error_message
+        ]
+
+        # Price is input as a string instead of a float
+        actual_result = trade_analysis([{
+            "symbol": "ALE",
+            "price": "70.44",
+            "volume": 1000.0,
+            "trade_type": "sell",
+            "trade_date": datetime.now().strftime(trade_date_format)
+        }])
+        self.assertEqual(expected_result, actual_result)

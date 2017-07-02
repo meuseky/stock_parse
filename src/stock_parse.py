@@ -33,41 +33,22 @@ def run_analysis(input_args):
     :return:
     """
     if input_args.index:
-        print("# Index Analysis")
-        try:
-            index_data = get_csv_data_by_file(input_args.index)
-            index = index_analysis(index_data)
-            print(index_string.format(index.gbce_all_share_index()))
-        except (KeyError, ValueError):
-            print(csv_error_message)
-        except TypeError:
-            print(data_error_message)
+        index_data = get_csv_data_by_file(input_args.index)
+        output_data = index_analysis(index_data)
+        for line in output_data:
+            print(line)
 
     if input_args.stock:
-        print("# Stock Analysis")
-        try:
-            stock_data = get_csv_data_by_file(input_args.stock)
-            stock_list = stock_analysis(stock_data)
-            for stock in stock_list:
-                print(stock_string.format(stock.symbol, stock.dividend_yield(),
-                                          stock.pe_ratio()))
-        except (KeyError, ValueError):
-            print(csv_error_message)
-        except TypeError:
-            print(data_error_message)
+        stock_data = get_csv_data_by_file(input_args.stock)
+        output_data = stock_analysis(stock_data)
+        for line in output_data:
+            print(line)
 
     if input_args.trade:
-        print("# Trade Analysis")
-        try:
-            trade_data = get_csv_data_by_file(input_args.trade)
-            trade_dict = trade_analysis(trade_data)
-            for symbol, trades in trade_dict.items():
-                print(trade_string.format(symbol,
-                                          trades.vol_weighted_stock_price()))
-        except (KeyError, ValueError):
-            print(csv_error_message)
-        except TypeError:
-            print(data_error_message)
+        trade_data = get_csv_data_by_file(input_args.trade)
+        output_data = trade_analysis(trade_data)
+        for line in output_data:
+            print(line)
 
 
 def main():

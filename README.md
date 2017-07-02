@@ -28,11 +28,11 @@ The application can be run in one of three ways.Examples use files found in the 
 **Commandline Arguments**
 
     # index analysis
-    -i --index file_name.csv
+    -i --index file_name
     # stock analysis
-    -s --stock file_name.csv
+    -s --stock file_name
     # trade analysis
-    -t --trade file_name.csv
+    -t --trade file_name
     
 **1 - From source code**
 
@@ -56,12 +56,7 @@ Open the file `stock_analysis.ipynb`
 To install iPython notebook
 
     pip3 install ipython
-    
-
-To install Python 3 kernel (if necessary)
-
-    ipython3 kernelspec install-self
-
+   
 ##### Dependencies
 There are currently no requirements for the app. There is one requirement `mock` for testing.
 
