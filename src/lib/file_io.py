@@ -3,8 +3,8 @@ import csv
 
 def get_csv_data_by_file(file_handle) -> list:
     """
-
-    :param file_handle:
+    Returns CSV data for input file handle
+    :param file_handle: argparse.FileType("r")
     :return:
     """
     with file_handle as file:
@@ -18,7 +18,7 @@ def get_csv_data_by_file(file_handle) -> list:
 
 def get_csv_data_by_filename(file_name: str):
     """
-
+    Returns CSV data for input file name
     :param file_name:
     :return:
     """

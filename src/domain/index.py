@@ -4,7 +4,7 @@ from operator import attrgetter
 
 class IndexStock(object):
     """
-    Put some details here
+    Represents a single stock in an Index
     """
 
     def __init__(self, symbol: str, price: float):
@@ -20,26 +20,34 @@ class IndexStock(object):
 
 class Index(object):
     """
-    Put some details here
+    Obstensibly a list of stocks with method returning the GBCE Index
     """
 
     def __init__(self, index_stocks: list=None):
         """
-
         :param index_stocks:
         :return:
         """
         self.index_stocks = index_stocks or []
 
     def add_index_stock(self, index_stock: IndexStock):
+        """
+        Adds a single IndexStock to the Index
+        :param index_stock:
+        :return:
+        """
         self.index_stocks.append(index_stock)
 
     def get_price_list(self) -> list:
+        """
+        Returns a list of all of the prices of stocks in the Index
+        :return:
+        """
         return list(map(attrgetter('price'), self.index_stocks))
 
     def gbce_all_share_index(self) -> float:
         """
-
+        Returns the geometric mean of the Index price list
         :return:
         """
         price_list = self.get_price_list()

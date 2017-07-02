@@ -4,6 +4,11 @@ from src.domain.trade import Trade, TradeList
 
 
 def index_analysis(index_data):
+    """
+    Returns Index class containing GBCE All Share Index method
+    :param index_data:
+    :return:
+    """
     index = Index()
 
     for data in index_data:
@@ -14,6 +19,11 @@ def index_analysis(index_data):
 
 
 def stock_analysis(stock_data):
+    """
+    Returns list of stocks with Div Yiels, and PE Ratio methods
+    :param stock_data:
+    :return:
+    """
     stock_list = []
 
     for data in stock_data:
@@ -26,6 +36,11 @@ def stock_analysis(stock_data):
 
 
 def trade_analysis(trade_data):
+    """
+    Returns dict of Trade Lists with Volume Weighted Prices
+    :param trade_data:
+    :return:
+    """
     trade_dict = {}
 
     for data in trade_data:

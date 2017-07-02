@@ -9,6 +9,11 @@ from src.lib.messages import index_string, stock_string, trade_string, \
 
 
 def parse_args(input_args):
+    """
+    Retrieves commandline args
+    :param input_args:
+    :return:
+    """
     parser = argparse.ArgumentParser(
         description="A simple utility to analyse and display "
                     "trade, index, and stock price data from csv files")
@@ -22,6 +27,11 @@ def parse_args(input_args):
 
 
 def run_analysis(input_args):
+    """
+    Runs routes selected by args
+    :param input_args:
+    :return:
+    """
     if input_args.index:
         print("# Index Analysis")
         try:
@@ -61,6 +71,11 @@ def run_analysis(input_args):
 
 
 def main():
+    """
+    Separate main() function to allow module to be used
+    as a console_script
+    :return:
+    """
     args = parse_args(sys.argv[1:])
     run_analysis(args)
 

@@ -4,7 +4,8 @@ from src.lib.decorator import handle_zero_division
 
 class Stock(object):
     """
-    Put some details here
+    Contains the details of a stock, along with a list of transactions on it
+    Also contains methods for the div yield, and pe ratio
     """
 
     def __init__(self, symbol: str, stock_type: str, last_dividend: float,
@@ -18,13 +19,19 @@ class Stock(object):
         self.trade_list = TradeList()
 
     def add_trade(self, trade: Trade):
-        # TODO type check trade? Yes because other methods depend on it being that type
+        """
+        Adds a single trade to the Stocks trade_list
+        :param trade:
+        :return:
+        """
         self.trade_list.add_trade(trade)
 
     @handle_zero_division
     def dividend_yield(self) -> float:
         """
-
+        Returns the Div yield based on a stocks price, and it's type
+        "common" or "preferred"
+        Returns inf if zero division occurs
         :return:
         """
         if self.stock_type == "common":
@@ -36,7 +43,8 @@ class Stock(object):
     @handle_zero_division
     def pe_ratio(self) -> float:
         """
-
+        Returns the PE ratio based on a stocks price
+        Returns inf if zero division occurs
         :return:
         """
         return self.price / self.last_dividend

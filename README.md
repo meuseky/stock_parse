@@ -46,7 +46,7 @@ Note: If running in windows `set PYTHONPATH=.`
     pip install .
     stock_parse -i sample_data/index_data.csv
 
-**2 - In Juypter notebook**
+**2 - In iPython/Juypter notebook**
 Open the file `stock_analysis.ipynb`
 To install juypter notebook
 
