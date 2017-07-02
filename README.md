@@ -40,8 +40,8 @@ Open the file `stock_analysis.ipynb`
 
 To install iPython notebook
 
-    pip3 install --upgrade pip
-    pip3 install jupyter
+    pip install --upgrade setuptools pip
+    pip install jupyter
    
 ##### Dependencies
 There are currently no requirements for the app. There is one requirement `mock` for testing.
