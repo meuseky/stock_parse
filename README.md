@@ -3,7 +3,8 @@ Stock Parse
 
 A Python 3 commandline application that analyses index, stock, and trade data. All data is input via CSV files.
  
-**Important:** Run `sample_data/update_trade_data.py` to update  `trade_data.csv` with recent timestamps in order for it to return useful data. This is due to the trades being filtered to only look for those in the last 15 mins. 
+**Important:** Run `sample_data/update_trade_data.py` to update  `trade_data.csv` with recent timestamps in order for it to return useful data. 
+This is due to the trades being filtered to only look for those in the last 15 mins. 
 
 Running the application
 -----------------------
@@ -31,15 +32,15 @@ Note: If running in windows `set PYTHONPATH=.`
     pip install .
     stock_parse -i sample_data/index_data.csv
 
-**3 - In iPython notebook**
+**3 - In jupyter notebook**
 
 Open the file `stock_analysis.ipynb`
 
-    ipython notebook
+    jupyter notebook
 
 To install iPython notebook
 
-    pip3 install ipython
+    pip3 install jupyter
    
 ##### Dependencies
 There are currently no requirements for the app. There is one requirement `mock` for testing.
