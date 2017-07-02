@@ -1,5 +1,4 @@
 from datetime import datetime, timedelta
-from math import inf
 from unittest import TestCase
 
 from src.domain.trade import Trade, TradeList, trade_date_format
@@ -67,4 +66,4 @@ class TestTrade(TestCase):
         trade_list.add_trade(Trade(self.symbol, 10, 0,
                                    self.trade_type, self.trade_date))
 
-        self.assertEqual(inf, trade_list.vol_weighted_stock_price())
+        self.assertEqual(float('inf'), trade_list.vol_weighted_stock_price())

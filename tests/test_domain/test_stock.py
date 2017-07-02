@@ -1,4 +1,3 @@
-from math import inf
 from unittest import TestCase
 
 from src.domain.stock import Stock
@@ -37,11 +36,11 @@ class TestStock(TestCase):
 
     def test_dividend_yield_zero_division(self):
         self.stock.price = 0
-        self.assertEqual(inf, self.stock.dividend_yield())
+        self.assertEqual(float('inf'), self.stock.dividend_yield())
 
     def test_pe_ratio(self):
         self.assertEqual(5, self.stock.pe_ratio())
 
     def test_pe_ratio_zero_division(self):
         self.stock.last_dividend = 0
-        self.assertEqual(inf, self.stock.pe_ratio())
+        self.assertEqual(float('inf'), self.stock.pe_ratio())

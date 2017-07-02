@@ -1,6 +1,3 @@
-import math
-
-
 def handle_zero_division(fn):
     """
     Wraps division function that throws ZeroDivisionError
@@ -12,5 +9,5 @@ def handle_zero_division(fn):
         try:
             return fn(*args, **kwargs)
         except ZeroDivisionError:
-            return math.inf
+            return float('inf')
     return wrapped
