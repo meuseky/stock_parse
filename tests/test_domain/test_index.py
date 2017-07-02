@@ -39,7 +39,7 @@ class TestIndex(TestCase):
         }
         for symbol, price in index_stock_data.items():
             index.add_index_stock(IndexStock(symbol, price))
-        self.assertEqual([1, 2, 3, 4, 5], index.get_price_list())
+        self.assertEqual(set([1, 2, 3, 4, 5]), set(index.get_price_list()))
 
     @patch("src.domain.index.Index.get_price_list")
     def test_gbce_all_share_index(self, price_list):
