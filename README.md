@@ -47,7 +47,7 @@ Note: If running in windows `set PYTHONPATH=.`
     pip install .
     stock_parse -i sample_data/index_data.csv
 
-**2 - In iPython notebook**
+**3 - In iPython notebook**
 
 Open the file `stock_analysis.ipynb`
 
