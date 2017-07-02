@@ -34,9 +34,9 @@ class TestTrade(TestCase):
 
     def test_get_trades_in_interval(self):
         date_now = datetime.now().strftime(trade_date_format)
-        in_interval = (datetime.now() - timedelta(minutes=10))\
+        in_interval = (datetime.now() - timedelta(minutes=14))\
             .strftime(trade_date_format)
-        out_of_interval = (datetime.now() - timedelta(minutes=20))\
+        out_of_interval = (datetime.now() - timedelta(minutes=16))\
             .strftime(trade_date_format)
 
         trade_list = TradeList()
@@ -47,7 +47,7 @@ class TestTrade(TestCase):
         trade_list.add_trade(Trade(self.symbol, self.price, self.volume,
                                    self.trade_type, out_of_interval))
 
-        trades_in_interval = tuple(trade_list.get_trades_in_interval())
+        trades_in_interval = trade_list.get_trades_in_interval()
         self.assertEqual(2, len(trades_in_interval))
 
     def test_vol_weighted_stock_price(self):

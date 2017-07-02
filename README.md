@@ -23,8 +23,41 @@ All strings in the CSV files are quoted. Any unquoted data is treated as a float
 
 Running the application
 -----------------------
+The application can be run in one of three ways.Examples use files found in the ./sample_data path.
+
+**Commandline Arguments**
+
+    # index analysis
+    -i --index file_name.csv
+    # stock analysis
+    -s --stock file_name.csv
+    # trade analysis
+    -t --trade file_name.csv
+    
+**1 - From source code**
+
+    export PYTHONPATH=.
+    python src/stock_parse.py -i sample_data/index_data.csv
+    python src/stock_parse.py -s sample_data/stock_data.csv
+    python src/stock_parse.py -t sample_data/trade_data.csv
+Note: If running in windows `set PYTHONPATH=.`
+**2 - As a console script**
+
+    pip install .
+    stock_parse -i sample_data/index_data.csv
+
+**2 - In Juypter notebook**
+Open the file `stock_analysis.ipynb`
+To install juypter notebook
+
+    pip3 install jupyter
+    
+To install Python 3 kernel (if necessary)
+
+    ipython3 kernelspec install-self
+
 ##### Dependencies
-There are currently no requirements.
+There are currently no requirements for the app. There is one requirement `mock` for testing.
 
 Testing
 -------
@@ -32,4 +65,8 @@ To run all unit tests:
 
     pip install -r requirements.test.txt
     python -m unittest discover -v -s tests
-    
+
+### Improvement Areas
+* Testing of print statements in stock_parse.py
+* Duplicate code in stock_parse:run_analysis()
+* Add arg to set "interval" start/end date

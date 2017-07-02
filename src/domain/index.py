@@ -32,7 +32,6 @@ class Index(object):
         self.index_stocks = index_stocks or []
 
     def add_index_stock(self, index_stock: IndexStock):
-        # TODO type check indexstock? Yes because other methods depend on it being that type
         self.index_stocks.append(index_stock)
 
     def get_price_list(self) -> list:

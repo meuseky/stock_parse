@@ -48,19 +48,21 @@ class TradeList(object):
         """
         self.trades.append(trade)
 
-    def get_trades_in_interval(self,
-                               interval_start=
-                               datetime.now() - timedelta(minutes=15),
-                               interval_end=datetime.now()) -> list:
+    def get_trades_in_interval(self) -> list:
         """
 
         :param interval_start:
         :param interval_end:
         :return:
         """
+        interval_start = datetime.now() - timedelta(minutes=15)
+        interval_end = datetime.now()
+        trades_in_interval = []
         for trade in self.trades:
             if interval_start <= trade.trade_date <= interval_end:
-                yield trade
+                trades_in_interval.append(trade)
+
+        return trades_in_interval
 
     @handle_zero_division
     def vol_weighted_stock_price(self) -> float:

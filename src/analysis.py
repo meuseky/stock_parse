@@ -36,7 +36,11 @@ def trade_analysis(trade_data):
         if symbol not in trade_dict:
             trade_dict[symbol] = TradeList()
         trade_dict[symbol].add_trade(trade)
-    # Later get only trades in interval
+
+    for symbol in trade_dict.keys():
+        trades_in_interval = [t for t in
+                              trade_dict[symbol].get_trades_in_interval()]
+        trade_dict[symbol] = TradeList(trades_in_interval)
 
     return trade_dict
 
