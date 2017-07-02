@@ -47,12 +47,17 @@ Note: If running in windows `set PYTHONPATH=.`
     pip install .
     stock_parse -i sample_data/index_data.csv
 
-**2 - In iPython/Juypter notebook**
-Open the file `stock_analysis.ipynb`
-To install juypter notebook
+**2 - In iPython notebook**
 
-    pip3 install jupyter
+Open the file `stock_analysis.ipynb`
+
+    ipython notebook
+
+To install iPython notebook
+
+    pip3 install ipython
     
+
 To install Python 3 kernel (if necessary)
 
     ipython3 kernelspec install-self
