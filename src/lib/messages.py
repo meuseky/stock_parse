@@ -4,3 +4,4 @@ trade_string = "Symbol: {} | Volume Weighted Price: {:f}"
 
 csv_error_message = "Error - Invalid CSV File"
 data_error_message = "Error - CSV Contains Invalid Data"
+file_not_found_message = "Error - No such file '{}'"

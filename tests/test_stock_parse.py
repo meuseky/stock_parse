@@ -17,7 +17,7 @@ class TestApp(TestCase):
         self.args.trade = None
 
     @patch("src.stock_parse.index_analysis")
-    @patch("src.stock_parse.get_csv_data_by_file")
+    @patch("src.stock_parse.get_csv_data_by_filename")
     def test_run_analysis_index(self, get_csv_file, get_index):
         self.args.index = "index_file.csv"
         index_data = [{
@@ -30,7 +30,7 @@ class TestApp(TestCase):
         get_index.assert_called_with(index_data)
 
     @patch("src.stock_parse.stock_analysis")
-    @patch("src.stock_parse.get_csv_data_by_file")
+    @patch("src.stock_parse.get_csv_data_by_filename")
     def test_run_analysis_stock(self, get_csv_file, get_stock):
         self.args.stock = "stock_file.csv"
         stock_data = [{
@@ -47,7 +47,7 @@ class TestApp(TestCase):
         get_stock.assert_called_with(stock_data)
 
     @patch("src.stock_parse.trade_analysis")
-    @patch("src.stock_parse.get_csv_data_by_file")
+    @patch("src.stock_parse.get_csv_data_by_filename")
     def test_run_analysis_trade(self, get_csv_file, get_trade):
         self.args.trade = "trade_file.csv"
         trade_data = [{
