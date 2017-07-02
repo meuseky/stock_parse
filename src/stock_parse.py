@@ -4,8 +4,6 @@ import sys
 
 from src.analysis import index_analysis, trade_analysis, stock_analysis
 from src.lib.file_io import get_csv_data_by_file
-from src.lib.messages import index_string, stock_string, trade_string, \
-    csv_error_message, data_error_message
 
 
 def parse_args(input_args):

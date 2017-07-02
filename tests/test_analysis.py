@@ -98,7 +98,7 @@ class TestAnalysis(TestCase):
         }]
 
         expected_result = [
-            '# Stock Analysis',
+            '# Trade Analysis',
             'Symbol: ALE | Volume Weighted Price: inf'
         ]
         actual_result = trade_analysis(trade_data)

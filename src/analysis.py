@@ -64,7 +64,7 @@ def trade_analysis(trade_data):
     :return:
     """
     try:
-        output_list = ["# Stock Analysis"]
+        output_list = ["# Trade Analysis"]
         trade_dict = {}
 
         for data in trade_data:
